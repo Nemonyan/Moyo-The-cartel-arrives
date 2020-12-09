@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Defs>
+	<ThingDef ParentName="BaseWeapon_Bladelink">
+		<defName>Moyo_PersonaKatana</defName>
+		<label>moyo persona vibroedge</label>
+		<description>A thin blade inspired by a particular surface weapon equipped with a vibroblade. A pinnacle of abysstech, it cuts through even thick armor with ease. A quick and silent solution to whom rebel against the Cartel.
+					\nThis weapon has an onboard persona that can bond to only a single person. The wielder and intelligent weapon can synchronize their reflexes and attack with frightening speed, accuracy, and creativity. Once bonded to a wielder, the weapon's persona will refuse to be wielded by anyone else.\n\nThe question of how this weapon has a persona is an unsolved mystery.</description>
+		<soundInteract>Interact_MonoSword</soundInteract>
+		<meleeHitSound>MeleeHit_MonoSword</meleeHitSound>
+		<graphicData>
+			<texPath>Things/Weapons/MoyoCKatana</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1</drawSize>			
+		</graphicData>
+		<uiIconScale>1.5</uiIconScale>
+		<weaponTags Inherit="False">
+			<li>Moyo_CartelMeleePersona</li>
+		</weaponTags>
+		<tradeability>Sellable</tradeability>		
+		<statBases>
+			<MarketValue>3000</MarketValue>
+			<Mass>2.5</Mass>
+		</statBases>
+		<tools>
+			<li>
+				<label>handle</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>12</power>
+				<cooldownTime>1.6</cooldownTime>
+			</li>
+			<li>
+				<label>point</label>
+				<capacities>
+					<li>Stab</li>
+				</capacities>
+				<power>30</power>
+				<cooldownTime>1.8</cooldownTime>
+				<armorPenetration>0.9</armorPenetration>
+			</li>
+			<li>
+				<label>edge</label>
+				<capacities>
+					<li>Cut</li>
+				</capacities>
+				<power>30</power>
+				<cooldownTime>1.8</cooldownTime>
+				<armorPenetration>0.9</armorPenetration>
+			</li>
+		</tools>
+		<verbs>
+			<li>
+				<label>judgement cut</label>
+				<verbClass>Verb_LaunchProjectileStatic</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<onlyManualCast>True</onlyManualCast>
+				<range>12.9</range>
+				<forcedMissRadius>0.1</forcedMissRadius>
+				<warmupTime>1.5</warmupTime>
+				<noiseRadius>4</noiseRadius>
+				<soundCast>MeleeHit_MonoSword</soundCast>
+				<!-- <soundCastTail>GunTail_Medium</soundCastTail> -->
+				<muzzleFlashScale>8</muzzleFlashScale>
+				<drawHighlightWithLineOfSight>true</drawHighlightWithLineOfSight>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<defaultProjectile>Bullet_Vibroslash</defaultProjectile>
+			</li>
+		</verbs>		
+	</ThingDef>
+
+	<ThingDef ParentName="BaseBullet">
+		<defName>Bullet_Vibroslash</defName>
+		<label>judgement cut</label>
+		<graphicData>
+			<texPath>Things/Weapons/Mote_VibroSlashEmpty</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<drawSize>1</drawSize>
+		</graphicData>
+		<thingClass>Projectile_Explosive</thingClass>
+		<projectile>
+			<explosionRadius>1.5</explosionRadius>
+			<damageDef>Damage_Vibroslash</damageDef>
+			<damageAmountBase>25</damageAmountBase>
+			<speed>200</speed>
+		</projectile>
+	</ThingDef>	
+
+	<!-- Mote-->
+	<thingDef ParentName="MoyoMotebase">
+		<defName>Mote_Vibroslash</defName>
+		<graphicData>
+			<texPath>Things/Weapons/Mote_VibroSlash</texPath>
+			<shaderType>MoteGlow</shaderType>
+			<drawSize>1.5</drawSize>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<mote>
+			<solidTime>0.05</solidTime>
+			<fadeInTime>0.01</fadeInTime>
+			<fadeOutTime>0.05</fadeOutTime>
+		</mote>
+	</thingDef>
+	<thingDef ParentName="MoyoMotebase">
+		<defName>Mote_VibroslashGround</defName>
+		<graphicData>
+			<texPath>Things/Weapons/Mote_VibroSlashGround</texPath>
+			<shaderType>TransparentPostLight</shaderType>
+			<drawSize>1.5</drawSize>
+		</graphicData>
+		<altitudeLayer>FloorEmplacement</altitudeLayer>
+		<mote>
+			<solidTime>0.5</solidTime>
+			<fadeInTime>0.06</fadeInTime>
+			<fadeOutTime>2</fadeOutTime>
+		</mote>
+	</thingDef>
+
+	<!-- Damage -->
+	<DamageDef ParentName="CutBase">
+		<defName>Damage_Vibroslash</defName>
+		<label>judgement cut</label>
+		<workerClass>Torgue.Torgue_DamageWorker_AddInjury</workerClass>
+		<isExplosive>true</isExplosive>
+		<minDamageToFragment>4</minDamageToFragment>
+		<buildingDamageFactor>0.5</buildingDamageFactor>
+		<plantDamageFactor>6</plantDamageFactor>
+		<explosionAffectOutsidePartsOnly>false</explosionAffectOutsidePartsOnly>
+		<explosionCellMote>Mote_VibroslashGround</explosionCellMote>
+		<explosionColorCenter>(1, 1, 1)</explosionColorCenter>
+		<explosionColorEdge>(0.8, 0.8, 0.8)</explosionColorEdge>
+		<explosionInteriorMote>Mote_Vibroslash</explosionInteriorMote>
+		<soundExplosion>MeleeHit_MonoSword</soundExplosion>
+	</DamageDef>	
+</Defs>

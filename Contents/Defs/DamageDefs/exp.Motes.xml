@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+	<thingDef ParentName="MoyoMotebase">
+		<defName>Mote_MoyoPlasmaBlast</defName>
+		<graphicData>
+			<texPath>Things/Weapons/MoyoCPlasmaBlast</texPath>
+			<shaderType>MoteGlow</shaderType>
+		</graphicData>
+		<altitudeLayer>MoteOverhead</altitudeLayer>
+		<mote>
+			<solidTime>0.1</solidTime>
+			<fadeInTime>0.06</fadeInTime>
+			<fadeOutTime>1.7</fadeOutTime>
+		</mote>
+	</thingDef>
+</Defs>

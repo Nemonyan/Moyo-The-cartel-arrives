@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ModMetaData>
+	<name>Moyo-The cartel arrives</name>
+	<author>Nemonian</author>
+	<supportedVersions>
+		<li>1.1</li>
+		<li>1.2</li>
+	</supportedVersions>
+	<packageId>Nemonian.MYCartel</packageId>
+	<description>
+Moyo-The cartel arrives
+
+ An add-on for Moyo-From the depth, this mod adds the Cartel, the other faction of the lighthouse.
+	
+== Contents ==
+-16 weapons
+-15 apparels + 7 royal tagged apparels (more to be added)
+-40 backstories (more to be added)
+	
+-1 production building (workbenches could be added to avoid clutter of recipe menu)
+-4 drugs and 1 medicine made with deepblue (more to be added)
+	
+-custom scenario and a faction
+	
+== Special thanks to ==
+-gquake 꾸악 https://steamcommunity.com/id/gguake/myworkshopfiles/?appid=294100 : providing code crucial to the mod.
+-Gouda quiche https://steamcommunity.com/profiles/76561197992216829/myworkshopfiles/?appid=294100 : providing code crucial to the mod(MoHar hediffs).
+-all the great people in RimWorld Korea discord server.
+-all the great people in rimworld alien races discord server.
+	</description>
+	<modDependencies>
+		<li>
+			<packageId>erdelf.HumanoidAlienRaces</packageId>
+			<displayName>HumanoidAlienRaces</displayName>
+			<steamWorkshopUrl>https://steamcommunity.com/sharedfiles/filedetails/?id=839005762</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>erdelf.HumanoidAlienRaces</li>
+	</loadAfter>
+</ModMetaData>
